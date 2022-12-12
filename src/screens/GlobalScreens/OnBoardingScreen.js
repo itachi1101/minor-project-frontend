@@ -1,8 +1,8 @@
 import { useRef, useState } from "react";
 import { Text, View, StyleSheet, FlatList, Animated, TouchableOpacity } from "react-native";
-import OnBoardingItem from "../components/OnBoardingItem";
-import onBoardingData from '../OnBoardingData.js'
-import Paginator from "../components/Paginator";
+import OnBoardingItem from "../../Components/OnBoardingItem.js";
+import onBoardingData from "../../Data/OnBoardingData.js";
+import Paginator from '../../Components/Paginator'
 export default function OnBoardingScreen() {
     const [currentIndex, setCurrentIndex] = useState(0)
     const scrollX = useRef(new Animated.Value(0)).current
@@ -12,7 +12,7 @@ export default function OnBoardingScreen() {
     const slidesRef = useRef(null)
     const viewConfig = useRef({ viewAreaCoveragePercentThreshold: 50 }).current
     const handlePress=()=>{
-        if(currentIndex<onBoardingData.length-1){
+        if(currentIndex< onBoardingData.length-1){
             slidesRef.current.scrollToIndex({index:currentIndex+1})
         }
         else{
