@@ -13,14 +13,14 @@ export default function App(){
   return(
     <View style={styles.container}>
       <OnBoardingScreen/>
-      {/* <SelectUserTypeScreen/> */}
-      {/* <LoginScreen/> */}
-      {/* <RegisterScreen/> */}
-      {/* <UserMainScreen/> */}
-      {/* <UserProfileScreen/> */}
-      {/* <UserRegisterComplaintScreen/> */}
-      {/* <PreviousBills/> */}
-      <StatusBar style="auto"/>
+      {/* <SelectUserTypeScreen/>
+      <LoginScreen/>
+      <RegisterScreen/>
+      <UserMainScreen/>
+      <UserProfileScreen/>
+      <UserRegisterComplaintScreen/>
+      <PreviousBills/>
+      <StatusBar style="auto"/> */}
     </View>
   )
 }
