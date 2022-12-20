@@ -1,6 +1,6 @@
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-export default function BillPaymentCard() {
+export default function BillPaymentCard({ previousBills }) {
     return (
         <View style={[styles.container, styles.elevation]}>
             <Text style={styles.heading}>
@@ -10,7 +10,7 @@ export default function BillPaymentCard() {
                 Total Outstanding is {'\u20B9'}20
             </Text>
             <View style={styles.btnContainer}>
-                <TouchableOpacity style={[styles.payContainer, styles.payContainerBlack]}>
+                <TouchableOpacity onPress={previousBills} style={[styles.payContainer, styles.payContainerBlack]}>
                     <Text style={styles.payText}>PREVIOUS BILLS</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.payContainer}>

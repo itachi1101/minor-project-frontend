@@ -1,7 +1,7 @@
-import { StyleSheet, Text, TextInput, TouchableOpacity, View ,StatusBar} from 'react-native';
+import { StyleSheet, Text, TextInput, TouchableOpacity, View, StatusBar } from 'react-native';
 import CustomButton from '../../Components/CustomButton'
 
-export default function LoginScreen() {
+export default function LoginScreen({ navigation }) {
     return (
         <View style={styles.container}>
             <StatusBar style="auto" />
@@ -16,10 +16,12 @@ export default function LoginScreen() {
                     <Text style={styles.labels}>Enter your Password</Text>
                     <TextInput style={styles.inputStyle} autoCapitalize="none"
                         autoCorrect={false} secureTextEntry={true} />
-                    <TouchableOpacity style={styles.linkContainer}>
+                    <TouchableOpacity onPress={() => {
+                        navigation.navigate("signup")
+                    }} style={styles.linkContainer}>
                         <Text style={styles.linkText}>Don't have an account?
-                            <Text style={{color:"blue",marginLeft:"10px"}}>
-                                 SignUp
+                            <Text style={{ color: "blue", marginLeft: "10px" }}>
+                                SignUp
                             </Text>
                         </Text>
                     </TouchableOpacity>
@@ -33,11 +35,11 @@ export default function LoginScreen() {
 }
 const styles = StyleSheet.create({
     container: {
-        flex:1,
+        flex: 1,
         display: "flex",
         alignItems: "center",
         backgroundColor: "#fff",
-        paddingTop:StatusBar.currentHeight
+        paddingTop: StatusBar.currentHeight
     },
     wrapper: {
         width: "90%",

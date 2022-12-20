@@ -10,7 +10,7 @@ export default function PreviousBills() {
                     BILLING HISTORY
                 </Text>
                 <Text style={styles.subHeading}>
-                    Address: asdfkld;jskad;lskjfk
+                    Address: Sector-20 Noida Block E
                 </Text>
             </View>
             <ScrollView showsVerticalScrollIndicator={false} style={styles.scrollContainer}>
@@ -50,8 +50,8 @@ const styles = StyleSheet.create({
         fontSize: 15,
         marginTop: 12,
         marginBottom: 20,
-        color:"black",
-        textAlign:"center"
+        color: "black",
+        textAlign: "center"
     },
     scrollContainer: {
         backgroundColor: "whitesmoke",
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
         shadowColor: "#52006A",
         elevation: 30,
         flexGrow: 0,
-        color:"black"
+        color: "black"
     },
     listContainer: {
         display: "flex",
@@ -72,21 +72,21 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1,
         paddingVertical: 18,
         borderColor: "gray",
-        color:"black"
+        color: "black"
 
     },
     listContainerDate: {
         fontSize: 16,
         fontWeight: 'bold',
         padding: 3,
-        color:"black"
+        color: "black"
 
     },
     listContainerAmount: {
         fontSize: 16,
         padding: 3,
         marginRight: 19,
-        color:"black"
+        color: "black"
 
     }
 })
