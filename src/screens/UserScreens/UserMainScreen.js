@@ -4,14 +4,17 @@ import BillPaymentCard from "../../Components/BillPaymetCard";
 import CalendarComponent from "../../Components/CalanderComponent";
 import CustomStatusCard from "../../Components/CustomStatusCard";
 
-export default function UserMainScreen() {
+export default function UserMainScreen({ navigation }) {
     return (
         <SafeAreaView style={styles.container} >
             <ScrollView showsVerticalScrollIndicator={false}>
 
                 <ScrollView horizontal={true} contentContainerStyle={{ flexGrow: 1, justifyContent: 'center' }} showsHorizontalScrollIndicator={false} style={styles.scrollViewContainer}>
                     <CustomStatusCard />
-                    <BillPaymentCard />
+                    <BillPaymentCard previousBills={() => {
+                        navigation.navigate("previousBills")
+                    }} />
+
                 </ScrollView>
                 <View style={styles.calendarContainer}>
                     <Text style={styles.calendarText}>
@@ -19,7 +22,10 @@ export default function UserMainScreen() {
                     </Text>
                     <CalendarComponent />
                 </View>
-                <TouchableOpacity style={styles.complainContainer}>
+                <TouchableOpacity onPress={()=>{
+                    navigation.navigate("registerComplaint")
+                }}
+                style={styles.complainContainer}>
                     <Text style={styles.complainText}>
                         Register Complaint
                     </Text>
@@ -32,10 +38,11 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         paddingTop: StatusBar.currentHeight,
-        marginBottom:20
+        marginBottom: 20,
+        backgroundColor: "white"
     },
     scrollViewContainer: {
-        backgroundColor:"white"
+        backgroundColor: "white"
     },
     calendarContainer: {
         padding: 20,
@@ -56,12 +63,13 @@ const styles = StyleSheet.create({
         padding: 15,
         marginLeft: 40,
         marginRight: 40,
-        borderRadius: 18
+        borderRadius: 18,
+        marginBottom: 20
     },
     complainText: {
         textAlign: "center",
         fontSize: 24,
         color: "white",
-        fontWeight: 'bold'
+        fontWeight: 'bold',
     }
 })

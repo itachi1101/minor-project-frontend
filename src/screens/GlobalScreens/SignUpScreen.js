@@ -1,7 +1,7 @@
-import { ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View,StatusBar } from 'react-native';
+import { ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View, StatusBar } from 'react-native';
 import CustomButton from "../../Components/CustomButton";
 
-export default function RegisterScreen() {
+export default function RegisterScreen({ navigation }) {
     return (
         <View style={styles.container}>
             <StatusBar style="auto" />
@@ -25,7 +25,9 @@ export default function RegisterScreen() {
                     <Text style={styles.labels}>EnterPassword</Text>
                     <TextInput style={styles.inputStyle} autoCapitalize="none"
                         autoCorrect={false} secureTextEntry={true} />
-                    <TouchableOpacity style={styles.linkContainer}>
+                    <TouchableOpacity onPress={() => {
+                        navigation.navigate("login")
+                    }} style={styles.linkContainer}>
                         <Text style={styles.linkText}>Already have an account?
                             <Text style={{ color: "blue" }}>
                                 LOGIN
@@ -42,16 +44,17 @@ export default function RegisterScreen() {
 }
 const styles = StyleSheet.create({
     container: {
-        flex:1,
+        flex: 1,
         backgroundColor: "#fff",
-        paddingTop: StatusBar.currentHeight,
-        marginBottom:10,
-        width:"90%"
-        
+        // paddingTop: StatusBar.currentHeight,
+        marginBottom: 10,
+
     },
     wrapper: {
-        flex:1,
+        flex: 1,
         flexDirection: "column",
+        padding: 10,
+
     },
     mainText: {
         fontSize: 40,
@@ -78,7 +81,7 @@ const styles = StyleSheet.create({
         borderRadius: 1,
         fontSize: 18,
         marginBottom: 10,
-        color:'black'
+        color: 'black'
     },
     linkContainer: {
         marginTop: 10,
@@ -91,6 +94,7 @@ const styles = StyleSheet.create({
 
     ,
     btnContainer: {
-        marginTop: 30
+        marginTop: 30,
+        marginBottom: 20
     }
 })

@@ -3,7 +3,8 @@ import { Text, View, StyleSheet, FlatList, Animated, TouchableOpacity } from "re
 import OnBoardingItem from "../../Components/OnBoardingItem.js";
 import onBoardingData from "../../Data/OnBoardingData.js";
 import Paginator from '../../Components/Paginator'
-export default function OnBoardingScreen() {
+import { StackActions } from "@react-navigation/native";
+export default function OnBoardingScreen({navigation}) {
     const [currentIndex, setCurrentIndex] = useState(0)
     const scrollX = useRef(new Animated.Value(0)).current
     const viewableItemsChanged = useRef(({ viewableItems }) => {
@@ -16,7 +17,8 @@ export default function OnBoardingScreen() {
             slidesRef.current.scrollToIndex({index:currentIndex+1})
         }
         else{
-
+            navigation.navigate("chooseType")
+            // navigation.dispatch(StackActions.replace("chooseType"))
         }
     }
     return (
@@ -49,7 +51,8 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        backgroundColor:"white"
     },
     button: {
         backgroundColor: '#f4338f',

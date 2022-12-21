@@ -2,7 +2,17 @@
 import { StyleSheet, Text, View, StatusBar } from 'react-native';
 import CustomButton from '../../Components/CustomButton';
 
-export default function SelectUserTypeScreen() {
+export default function SelectUserTypeScreen({ navigation }) {
+  const handleUserPress = () => {
+    navigation.navigate("login", {
+      type: "User"
+    })
+  }
+  const handleDriverPress = () => {
+    navigation.navigate("login", {
+      type: "Driver"
+    })
+  }
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
@@ -10,9 +20,8 @@ export default function SelectUserTypeScreen() {
         <Text style={styles.text}>
           Choose your account type
         </Text>
-        <CustomButton title="Admin" />
-        <CustomButton title="User" />
-        <CustomButton title="Vehicle Owner" />
+        <CustomButton click={handleUserPress} title="User" />
+        <CustomButton click={handleDriverPress} title="Vehicle Owner" />
       </View>
 
     </View>
@@ -25,7 +34,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingTop:StatusBar.currentHeight
+    paddingTop: StatusBar.currentHeight
   },
   text: {
     fontWeight: 'bold',
